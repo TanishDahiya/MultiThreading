@@ -8,7 +8,7 @@ public class InvokeAllExample {
 
         ExecutorService executor = Executors.newFixedThreadPool(3);
 
-        List<Callable<Integer>> tasks = Arrays.asList( () -> 10, () -> 20, () -> 30);
+        List<Callable<Integer>> tasks = Arrays.asList( () -> 10, () -> 20, () -> 30);   // Callable Integer Object in the list
 
         // runs all tasks
         List<Future<Integer>> futures = executor.invokeAll(tasks);   // invokeAll() - main thread wait until all tasks comepleted
