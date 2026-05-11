@@ -1,0 +1,40 @@
+import java.util.concurrent.*;
+
+public class CyclicBarrierExample {
+
+    public static void main(String[] args) {
+
+        CyclicBarrier barrier = new CyclicBarrier(3);
+
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        executor.submit(() -> {
+            try {
+                System.out.println("Player 1 reached");
+                barrier.await();
+                System.out.println("Player 1 started playing");
+            } catch (Exception e) {
+            }
+        });
+
+        executor.submit(() -> {
+            try {
+                System.out.println("Player 2 reached");
+                barrier.await();
+                System.out.println("Player 2 started playing");
+            } catch (Exception e) {
+            }
+        });
+
+        executor.submit(() -> {
+            try {
+                System.out.println("Player 3 reached");
+                barrier.await();
+                System.out.println("Player 3 started playing");
+            } catch (Exception e) {
+            }
+        });
+
+        executor.shutdown();
+    }
+}
