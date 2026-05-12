@@ -1,6 +1,6 @@
 class SharedObj {
 
-    boolean flag = false;
+    boolean flag = false;         // we need to add volatile keyword heere  private volatile boolean flag = false;
 
     // Writer Thread
     public void setFlagTrue() {
